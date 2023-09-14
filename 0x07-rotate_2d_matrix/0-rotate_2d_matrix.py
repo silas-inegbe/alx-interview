@@ -1,25 +1,59 @@
-def rotate_2d_matrix(matrix):
-    n = len(matrix)
+#!/usr/bin/python3
+"""_summary_
+"""
 
-    # Step 1: Transpose the matrix
+
+def transpose_matrix(matrix, n):
+    """_summary_
+
+    Args:
+                    matrix (_type_): _description_
+    """
     for i in range(n):
         for j in range(i, n):
             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
-    # Step 2: Reverse the order of the rows
-    for i in range(n):
-        matrix[i].reverse()
 
-# Example usage:
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
+def reverse_matrix(matrix):
+    """_summary_
 
-rotate_2d_matrix(matrix)
+    Args:
+                    matrix (_type_): _description_
+    """
+    for row in matrix:
+        row.reverse()
 
-# The matrix will be rotated in-place
-for row in matrix:
-    print(row)
 
+def rotate_2d_matrix(matrix):
+    """_summary_
+
+    Args:
+                    matrix (_type_): _description_
+    """
+    n = len(matrix)
+    # print(n)
+
+    """sample matrix
+    1 2 3
+    4 5 6
+    7 8 9
+    """
+
+    # transpose matrix
+    """
+    1 4 7
+    2 5 8
+    3 6 9
+    """
+
+    transpose_matrix(matrix, n)
+
+    # reverse matrix
+    """
+    7 4 1
+    8 5 2
+    9 6 3
+    """
+    reverse_matrix(matrix)
+
+    return matrix
